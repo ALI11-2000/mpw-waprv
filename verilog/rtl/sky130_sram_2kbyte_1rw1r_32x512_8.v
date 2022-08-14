@@ -108,11 +108,6 @@ module sky130_sram_2kbyte_1rw1r_32x512_8(
         if (!csb1_reg)
            dout1 <=  mem[addr1_reg];
       end
-
-      initial begin
-        $display("Reading Memory");
-        $readmemh("imem.hex", mem);
-      end
     
     endmodule
     
