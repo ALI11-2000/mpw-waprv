@@ -98,7 +98,7 @@ module sky130_sram_2kbyte_1rw1r_32x512_8(
       always @ (negedge clk0)
       begin : MEM_READ0
         if (!csb0_reg && web0_reg)
-           dout0 <= #(DELAY) mem[addr0_reg];
+           dout0 <=  mem[addr0_reg];
       end
     
       // Memory Read Block Port 1
@@ -106,7 +106,7 @@ module sky130_sram_2kbyte_1rw1r_32x512_8(
       always @ (negedge clk1)
       begin : MEM_READ1
         if (!csb1_reg)
-           dout1 <= #(DELAY) mem[addr1_reg];
+           dout1 <=  mem[addr1_reg];
       end
 
       initial begin
