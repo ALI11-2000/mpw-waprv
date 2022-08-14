@@ -33,7 +33,7 @@ module sky130_sram_2kbyte_1rw1r_32x512_8(
       input [NUM_WMASKS-1:0]   wmask0; // write mask
       input [ADDR_WIDTH-1:0]  addr0;
       input [DATA_WIDTH-1:0]  din0;
-      output [DATA_WIDTH-1:0] dout0;
+      output reg [DATA_WIDTH-1:0] dout0;
       input  clk1; // clock
       input   csb1; // active low chip select
       input [ADDR_WIDTH-1:0]  addr1;
@@ -44,7 +44,6 @@ module sky130_sram_2kbyte_1rw1r_32x512_8(
       reg [NUM_WMASKS-1:0]   wmask0_reg;
       reg [ADDR_WIDTH-1:0]  addr0_reg;
       reg [DATA_WIDTH-1:0]  din0_reg;
-      reg [DATA_WIDTH-1:0]  dout0;
     
       // All inputs are registers
       always @(posedge clk0)
