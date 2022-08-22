@@ -18,7 +18,7 @@
 // This include is relative to $CARAVEL_PATH (see Makefile)
 #include <defs.h>
 #include <stub.c>
-
+#define processor_start (*(volatile uint32_t*)0x31000000)
 /*
 	Wishbone Test:
 		- Configures MPRJ lower 8-IO pins as outputs
@@ -71,16 +71,29 @@ void main()
     reg_mprj_io_17 = GPIO_MODE_MGMT_STD_OUTPUT;
     reg_mprj_io_16 = GPIO_MODE_MGMT_STD_OUTPUT;
 
+    uint32_t *dst_pointer = &reg_mprj_slave;
+
      /* Apply configuration */
     reg_mprj_xfer = 1;
     while (reg_mprj_xfer == 1);
 
 	reg_la2_oenb = reg_la2_iena = 0x00000000;    // [95:64]
 
+    int code[]={0x00002710, 0x00002711, 0x00002722, 0x00002733, 0x00002744};
+
     // Flag start of the test
 	reg_mprj_datal = 0xAB600000;
 
     reg_mprj_slave = 0x00002710;
+
+    for (int i = 0; i < 5; i++)
+    {
+        *(dst_pointer++) = code[i];
+    }
+
+    processor_start = 0x1;
+    processor_start = 0x0;
+
     reg_mprj_datal = 0xAB610000;
     if (reg_mprj_slave == 0x2B3D) {
         reg_mprj_datal = 0xAB610000;

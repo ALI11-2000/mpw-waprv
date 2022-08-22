@@ -1,0 +1,7 @@
+docker pull efabless/dv:latest
+latest: Pulling from efabless/dv
+Digest: sha256:06497b070c8578fbbe87170c9f4dfa61c2c9a9d9f665a637c4d822ea98a7f1b7
+Status: Image is up to date for efabless/dv:latest
+docker.io/efabless/dv:latest
+docker run -v /home/ali11-2000/efabless/mpw-waprv:/home/ali11-2000/efabless/mpw-waprv -v /home/ali11-2000/efabless/pdk:/home/ali11-2000/efabless/pdk -v /home/ali11-2000/efabless/mpw-waprv/caravel:/home/ali11-2000/efabless/mpw-waprv/caravel -e TARGET_PATH=/home/ali11-2000/efabless/mpw-waprv -e PDK_ROOT=/home/ali11-2000/efabless/pdk -e CARAVEL_ROOT=/home/ali11-2000/efabless/mpw-waprv/caravel -e TOOLS=/foss/tools/riscv-gnu-toolchain-rv32i/217e7f3debe424d61374d31e33a091a630535937 -e DESIGNS=/home/ali11-2000/efabless/mpw-waprv -e PDK=sky130B -e CORE_VERILOG_PATH=/home/ali11-2000/efabless/mpw-waprv/mgmt_core_wrapper/verilog -e MCW_ROOT=/home/ali11-2000/efabless/mpw-waprv/mgmt_core_wrapper -u $(id -u $USER):$(id -g $USER) efabless/dv:latest sh -c "source ~/.bashrc && cd /home/ali11-2000/efabless/mpw-waprv/verilog/dv/wb_port && export SIM=RTL && make"
+make: Nothing to be done for `all'.

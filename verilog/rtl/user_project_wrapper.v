@@ -55,7 +55,7 @@ module user_project_wrapper #(
     output wbs_ack_o,
     output [31:0] wbs_dat_o,
 
-    // Logic Analyzer Signals
+    // wire Analyzer Signals
     input  [127:0] la_data_in,
     output [127:0] la_data_out,
     input  [127:0] la_oenb,
@@ -81,41 +81,67 @@ module user_project_wrapper #(
 /*--------------------------------------*/
 /* User project is instantiated  here   */
 /*--------------------------------------*/
+wire [31:0] dmem_addra;
+wire [31:0] dmem_addrb;
+wire [31:0] dmem_dina ;
+wire [31:0] dmem_dinb ;
+wire [3:0]  dmem_wea  ;
+wire        dmem_wea0 ;
+wire [3:0]  dmem_web  ;
+wire        dmem_ena  ;
+wire        dmem_enb  ;
+wire [31:0] dmem_doutb;
+wire [31:0] imem_addr ;
+wire [31:0] imem_data ;
+wire        clk_h;
+wire        clk0;
+wire        csb0;
+wire        processor_reset;
+wire        web0;
+wire [3:0]  wmask0;
+wire [31:0] din0;
+wire [9:0]  addr0;
+                  
+// warpv_core dut( dmem_addra,
+//                 dmem_addrb,
+//                 dmem_dina ,
+//                 dmem_dinb ,
+//                 dmem_wea  ,
+//                 dmem_wea0 ,
+//                 dmem_web  ,
+//                 dmem_ena  ,
+//                 dmem_enb  ,
+//                 dmem_doutb,
+//                 imem_addr ,
+//                 imem_data ,
+//                 wb_clk_i, processor_reset);
 
-user_proj_example mprj (
-`ifdef USE_POWER_PINS
-	.vccd1(vccd1),	// User area 1 1.8V power
-	.vssd1(vssd1),	// User area 1 digital ground
-`endif
+wb_interface interface(wb_clk_i,
+    wb_rst_i,
+    wbs_stb_i,
+    wbs_cyc_i,
+    wbs_we_i,
+    wbs_sel_i,
+    wbs_dat_i,
+    wbs_adr_i,
+    clk0,
+    csb0,
+    web0,
+    wmask0,
+    din0,
+    addr0,
+    wbs_ack_o,
+    processor_reset);
+                  
+sky130_sram_1kbyte_1rw1r_32x256_8 imem(
+   .clk0(wb_clk_i),.csb0(csb0),.web0(web0),.wmask0(wmask0),.addr0(addr0),.din0(din0),.dout0(),
+   .clk1(wb_clk_i),.csb1(1'b0),.addr1(imem_addr),.dout1(imem_data)
+);
 
-    .wb_clk_i(wb_clk_i),
-    .wb_rst_i(wb_rst_i),
-
-    // MGMT SoC Wishbone Slave
-
-    .wbs_cyc_i(wbs_cyc_i),
-    .wbs_stb_i(wbs_stb_i),
-    .wbs_we_i(wbs_we_i),
-    .wbs_sel_i(wbs_sel_i),
-    .wbs_adr_i(wbs_adr_i),
-    .wbs_dat_i(wbs_dat_i),
-    .wbs_ack_o(wbs_ack_o),
-    .wbs_dat_o(wbs_dat_o),
-
-    // Logic Analyzer
-
-    .la_data_in(la_data_in),
-    .la_data_out(la_data_out),
-    .la_oenb (la_oenb),
-
-    // IO Pads
-
-    .io_in (io_in),
-    .io_out(io_out),
-    .io_oeb(io_oeb),
-
-    // IRQ
-    .irq(user_irq)
+sky130_sram_1kbyte_1rw1r_32x256_8 dmem(
+   .clk0(wb_clk_i),.csb0(dmem_ena),.web0(dmem_wea0),.wmask0(dmem_wea),
+   .addr0(dmem_addra),.din0(dmem_dina), .dout0(),
+   .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb),.dout1(dmem_doutb)
 );
 
 endmodule	// user_project_wrapper
