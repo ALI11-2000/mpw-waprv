@@ -61,14 +61,15 @@ logic processor_reset;
     output [3:0] wmask0,
     output [31:0] din0,
     output [8:0]  addr0,
+    output imem_rd_cs1,
     output wbs_ack_o,
     output processor_reset);
    
    wire clk;
    assign clk = wb_clk_i;
 \TLV
-   $valid_addr = *wbs_adr_i[31:24] == 8'h30;
-   *processor_reset = (*wbs_adr_i[31:24] == 8'h31) ? *wbs_dat_i[0] : '0;
+   $valid_addr = *wbs_adr_i[31:11] == 21'b0011_0000_0000_0000_0000_0;
+   *processor_reset = ((*wbs_adr_i[31:28] == 4'h3) && (*wbs_adr_i[11] == 1)) ? *wbs_dat_i[0] : '0;
    $valid = *wbs_cyc_i && *wbs_stb_i;
    $ready = $valid && !>>1$ready;
    *clk0 = *wb_clk_i;
@@ -77,6 +78,7 @@ logic processor_reset;
    *wmask0 = *wbs_sel_i & {4{*wbs_we_i}};
    *din0 = *wbs_dat_i;
    *addr0 = *wbs_adr_i[10:2];
-   *wbs_ack_o = $ready || (*wbs_adr_i[31:24] == 8'h31);
+   *wbs_ack_o = $ready;
+   *imem_rd_cs1 = '0;
 \SV
    endmodule

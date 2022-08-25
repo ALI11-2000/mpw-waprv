@@ -98,50 +98,70 @@ wire        clk0;
 wire        csb0;
 wire        processor_reset;
 wire        web0;
+wire        imem_rd_cs1;
 wire [3:0]  wmask0;
 wire [31:0] din0;
-wire [9:0]  addr0;
+wire [8:0]  addr0;
                   
-// warpv_core dut( dmem_addra,
-//                 dmem_addrb,
-//                 dmem_dina ,
-//                 dmem_dinb ,
-//                 dmem_wea  ,
-//                 dmem_wea0 ,
-//                 dmem_web  ,
-//                 dmem_ena  ,
-//                 dmem_enb  ,
-//                 dmem_doutb,
-//                 imem_addr ,
-//                 imem_data ,
-//                 wb_clk_i, processor_reset);
+warpv_core core( `ifdef USE_POWER_PINS
+      .vccd1(vccd1),
+      .vssd1(vssd1),
+  `endif
+    .dmem_addra(dmem_addra     ) ,
+    .dmem_addrb(dmem_addrb     ) ,
+    .dmem_dina (dmem_dina      ) ,
+    .dmem_dinb (dmem_dinb      ) ,
+    .dmem_wea  (dmem_wea       ) ,
+    .dmem_wea0 (dmem_wea0      ) ,
+    .dmem_web  (dmem_web       ) ,
+    .dmem_ena  (dmem_ena       ) ,
+    .dmem_enb  (dmem_enb       ) ,
+    .dmem_doutb(dmem_doutb     ) ,
+    .imem_addr (imem_addr      ) ,
+    .imem_data (imem_data      ) ,
+    .clk       (wb_clk_i       ) , 
+    .reset     (processor_reset));
 
-wb_interface interface(wb_clk_i,
-    wb_rst_i,
-    wbs_stb_i,
-    wbs_cyc_i,
-    wbs_we_i,
-    wbs_sel_i,
-    wbs_dat_i,
-    wbs_adr_i,
-    clk0,
-    csb0,
-    web0,
-    wmask0,
-    din0,
-    addr0,
-    wbs_ack_o,
-    processor_reset);
+wb_interface wbs_int(`ifdef USE_POWER_PINS
+      .vccd1(vccd1),
+      .vssd1(vssd1),
+  `endif
+    .wb_clk_i       (wb_clk_i       ),
+    .wb_rst_i       (wb_rst_i       ),
+    .wbs_stb_i      (wbs_stb_i      ),
+    .wbs_cyc_i      (wbs_cyc_i      ),
+    .wbs_we_i       (wbs_we_i       ),
+    .wbs_sel_i      (wbs_sel_i      ),
+    .wbs_dat_i      (wbs_dat_i      ),
+    .wbs_adr_i      (wbs_adr_i      ),
+    .clk0           (clk0           ),
+    .csb0           (csb0           ),
+    .web0           (web0           ),
+    .wmask0         (wmask0         ),
+    .din0           (din0           ),
+    .addr0          (addr0          ),
+    .imem_rd_cs1    (imem_rd_cs1    ),
+    .wbs_ack_o      (wbs_ack_o      ),
+    .processor_reset(processor_reset)
+    );
                   
 sky130_sram_1kbyte_1rw1r_32x256_8 imem(
-   .clk0(wb_clk_i),.csb0(csb0),.web0(web0),.wmask0(wmask0),.addr0(addr0),.din0(din0),.dout0(),
-   .clk1(wb_clk_i),.csb1(1'b0),.addr1(imem_addr),.dout1(imem_data)
+   `ifdef USE_POWER_PINS
+      .vccd1(vccd1),
+      .vssd1(vssd1),
+  `endif
+   .clk0(wb_clk_i),.csb0(csb0),.web0(web0),.wmask0(wmask0),.addr0(addr0),.din0(din0),
+   .clk1(wb_clk_i),.csb1(imem_rd_cs1),.addr1(imem_addr[7:0]),.dout1(imem_data)
 );
 
 sky130_sram_1kbyte_1rw1r_32x256_8 dmem(
+    `ifdef USE_POWER_PINS
+      .vccd1(vccd1),
+      .vssd1(vssd1),
+  `endif
    .clk0(wb_clk_i),.csb0(dmem_ena),.web0(dmem_wea0),.wmask0(dmem_wea),
-   .addr0(dmem_addra),.din0(dmem_dina), .dout0(),
-   .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb),.dout1(dmem_doutb)
+   .addr0(dmem_addra[7:0]),.din0(dmem_dina),
+   .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb[7:0]),.dout1(dmem_doutb)
 );
 
 endmodule	// user_project_wrapper
