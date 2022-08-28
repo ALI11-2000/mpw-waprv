@@ -1,12 +1,2 @@
-# Caravel User Project
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![UPRJ_CI](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml) [![Caravel Build](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml)
-
-| :exclamation: Important Note            |
-|-----------------------------------------|
-
-## Please fill in your project documentation in this README.md file 
-
-Refer to [README](docs/source/quickstart.rst) for a quick start of how to use caravel_user_project
-
-Refer to [README](docs/source/index.rst) for this sample project documentation. 
+# WARP-V
+WARP-V is an open-source CPU core generator written in TL-Verilog with support for RISC-V and MIPS I. It is a demonstration and exploration vehicle for the flexibility that is possible using the emerging "transaction-level design" methodology. It can implement a single-stage, low-power microcontroller or a mid-range 7-stage CPU. Even the instruction-set architectures (ISAs) is configurable. WARP-V is an evolving library of CPU components as well as various compositions of them. It is driven by a community interested in transforming the silicon industry through open-source hardware and revolutionary design methodology.
