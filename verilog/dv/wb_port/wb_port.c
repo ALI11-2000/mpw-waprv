@@ -128,6 +128,7 @@ void main()
     processor_start = 0x0;
 
     reg_mprj_datal = 0xAB610000;
+    print(reg_la0_data);
     if (reg_mprj_slave == 0x2B3D) {
         reg_mprj_datal = 0xAB610000;
     }

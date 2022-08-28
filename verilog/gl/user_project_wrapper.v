@@ -53,50 +53,9 @@ module user_project_wrapper (user_clock2,
  output [31:0] wbs_dat_o;
  input [3:0] wbs_sel_i;
 
- wire \addr0[0] ;
- wire \addr0[1] ;
- wire \addr0[2] ;
- wire \addr0[3] ;
- wire \addr0[4] ;
- wire \addr0[5] ;
- wire \addr0[6] ;
- wire \addr0[7] ;
  wire \addr0[8] ;
  wire clk0;
  wire csb0;
- wire \din0[0] ;
- wire \din0[10] ;
- wire \din0[11] ;
- wire \din0[12] ;
- wire \din0[13] ;
- wire \din0[14] ;
- wire \din0[15] ;
- wire \din0[16] ;
- wire \din0[17] ;
- wire \din0[18] ;
- wire \din0[19] ;
- wire \din0[1] ;
- wire \din0[20] ;
- wire \din0[21] ;
- wire \din0[22] ;
- wire \din0[23] ;
- wire \din0[24] ;
- wire \din0[25] ;
- wire \din0[26] ;
- wire \din0[27] ;
- wire \din0[28] ;
- wire \din0[29] ;
- wire \din0[2] ;
- wire \din0[30] ;
- wire \din0[31] ;
- wire \din0[3] ;
- wire \din0[4] ;
- wire \din0[5] ;
- wire \din0[6] ;
- wire \din0[7] ;
- wire \din0[8] ;
- wire \din0[9] ;
- wire \dmem_addra[0] ;
  wire \dmem_addra[10] ;
  wire \dmem_addra[11] ;
  wire \dmem_addra[12] ;
@@ -107,7 +66,6 @@ module user_project_wrapper (user_clock2,
  wire \dmem_addra[17] ;
  wire \dmem_addra[18] ;
  wire \dmem_addra[19] ;
- wire \dmem_addra[1] ;
  wire \dmem_addra[20] ;
  wire \dmem_addra[21] ;
  wire \dmem_addra[22] ;
@@ -118,14 +76,8 @@ module user_project_wrapper (user_clock2,
  wire \dmem_addra[27] ;
  wire \dmem_addra[28] ;
  wire \dmem_addra[29] ;
- wire \dmem_addra[2] ;
  wire \dmem_addra[30] ;
  wire \dmem_addra[31] ;
- wire \dmem_addra[3] ;
- wire \dmem_addra[4] ;
- wire \dmem_addra[5] ;
- wire \dmem_addra[6] ;
- wire \dmem_addra[7] ;
  wire \dmem_addra[8] ;
  wire \dmem_addra[9] ;
  wire \dmem_addrb[0] ;
@@ -160,38 +112,6 @@ module user_project_wrapper (user_clock2,
  wire \dmem_addrb[7] ;
  wire \dmem_addrb[8] ;
  wire \dmem_addrb[9] ;
- wire \dmem_dina[0] ;
- wire \dmem_dina[10] ;
- wire \dmem_dina[11] ;
- wire \dmem_dina[12] ;
- wire \dmem_dina[13] ;
- wire \dmem_dina[14] ;
- wire \dmem_dina[15] ;
- wire \dmem_dina[16] ;
- wire \dmem_dina[17] ;
- wire \dmem_dina[18] ;
- wire \dmem_dina[19] ;
- wire \dmem_dina[1] ;
- wire \dmem_dina[20] ;
- wire \dmem_dina[21] ;
- wire \dmem_dina[22] ;
- wire \dmem_dina[23] ;
- wire \dmem_dina[24] ;
- wire \dmem_dina[25] ;
- wire \dmem_dina[26] ;
- wire \dmem_dina[27] ;
- wire \dmem_dina[28] ;
- wire \dmem_dina[29] ;
- wire \dmem_dina[2] ;
- wire \dmem_dina[30] ;
- wire \dmem_dina[31] ;
- wire \dmem_dina[3] ;
- wire \dmem_dina[4] ;
- wire \dmem_dina[5] ;
- wire \dmem_dina[6] ;
- wire \dmem_dina[7] ;
- wire \dmem_dina[8] ;
- wire \dmem_dina[9] ;
  wire \dmem_dinb[0] ;
  wire \dmem_dinb[10] ;
  wire \dmem_dinb[11] ;
@@ -224,38 +144,6 @@ module user_project_wrapper (user_clock2,
  wire \dmem_dinb[7] ;
  wire \dmem_dinb[8] ;
  wire \dmem_dinb[9] ;
- wire \dmem_doutb[0] ;
- wire \dmem_doutb[10] ;
- wire \dmem_doutb[11] ;
- wire \dmem_doutb[12] ;
- wire \dmem_doutb[13] ;
- wire \dmem_doutb[14] ;
- wire \dmem_doutb[15] ;
- wire \dmem_doutb[16] ;
- wire \dmem_doutb[17] ;
- wire \dmem_doutb[18] ;
- wire \dmem_doutb[19] ;
- wire \dmem_doutb[1] ;
- wire \dmem_doutb[20] ;
- wire \dmem_doutb[21] ;
- wire \dmem_doutb[22] ;
- wire \dmem_doutb[23] ;
- wire \dmem_doutb[24] ;
- wire \dmem_doutb[25] ;
- wire \dmem_doutb[26] ;
- wire \dmem_doutb[27] ;
- wire \dmem_doutb[28] ;
- wire \dmem_doutb[29] ;
- wire \dmem_doutb[2] ;
- wire \dmem_doutb[30] ;
- wire \dmem_doutb[31] ;
- wire \dmem_doutb[3] ;
- wire \dmem_doutb[4] ;
- wire \dmem_doutb[5] ;
- wire \dmem_doutb[6] ;
- wire \dmem_doutb[7] ;
- wire \dmem_doutb[8] ;
- wire \dmem_doutb[9] ;
  wire dmem_ena;
  wire dmem_enb;
  wire dmem_wea0;
@@ -370,14 +258,14 @@ module user_project_wrapper (user_clock2,
     \dmem_addra[10] ,
     \dmem_addra[9] ,
     \dmem_addra[8] ,
-    \dmem_addra[7] ,
-    \dmem_addra[6] ,
-    \dmem_addra[5] ,
-    \dmem_addra[4] ,
-    \dmem_addra[3] ,
-    \dmem_addra[2] ,
-    \dmem_addra[1] ,
-    \dmem_addra[0] }),
+    la_data_out[71],
+    la_data_out[70],
+    la_data_out[69],
+    la_data_out[68],
+    la_data_out[67],
+    la_data_out[66],
+    la_data_out[65],
+    la_data_out[64]}),
     .dmem_addrb({\dmem_addrb[31] ,
     \dmem_addrb[30] ,
     \dmem_addrb[29] ,
@@ -410,38 +298,38 @@ module user_project_wrapper (user_clock2,
     \dmem_addrb[2] ,
     \dmem_addrb[1] ,
     \dmem_addrb[0] }),
-    .dmem_dina({\dmem_dina[31] ,
-    \dmem_dina[30] ,
-    \dmem_dina[29] ,
-    \dmem_dina[28] ,
-    \dmem_dina[27] ,
-    \dmem_dina[26] ,
-    \dmem_dina[25] ,
-    \dmem_dina[24] ,
-    \dmem_dina[23] ,
-    \dmem_dina[22] ,
-    \dmem_dina[21] ,
-    \dmem_dina[20] ,
-    \dmem_dina[19] ,
-    \dmem_dina[18] ,
-    \dmem_dina[17] ,
-    \dmem_dina[16] ,
-    \dmem_dina[15] ,
-    \dmem_dina[14] ,
-    \dmem_dina[13] ,
-    \dmem_dina[12] ,
-    \dmem_dina[11] ,
-    \dmem_dina[10] ,
-    \dmem_dina[9] ,
-    \dmem_dina[8] ,
-    \dmem_dina[7] ,
-    \dmem_dina[6] ,
-    \dmem_dina[5] ,
-    \dmem_dina[4] ,
-    \dmem_dina[3] ,
-    \dmem_dina[2] ,
-    \dmem_dina[1] ,
-    \dmem_dina[0] }),
+    .dmem_dina({la_data_out[63],
+    la_data_out[62],
+    la_data_out[61],
+    la_data_out[60],
+    la_data_out[59],
+    la_data_out[58],
+    la_data_out[57],
+    la_data_out[56],
+    la_data_out[55],
+    la_data_out[54],
+    la_data_out[53],
+    la_data_out[52],
+    la_data_out[51],
+    la_data_out[50],
+    la_data_out[49],
+    la_data_out[48],
+    la_data_out[47],
+    la_data_out[46],
+    la_data_out[45],
+    la_data_out[44],
+    la_data_out[43],
+    la_data_out[42],
+    la_data_out[41],
+    la_data_out[40],
+    la_data_out[39],
+    la_data_out[38],
+    la_data_out[37],
+    la_data_out[36],
+    la_data_out[35],
+    la_data_out[34],
+    la_data_out[33],
+    la_data_out[32]}),
     .dmem_dinb({\dmem_dinb[31] ,
     \dmem_dinb[30] ,
     \dmem_dinb[29] ,
@@ -474,38 +362,38 @@ module user_project_wrapper (user_clock2,
     \dmem_dinb[2] ,
     \dmem_dinb[1] ,
     \dmem_dinb[0] }),
-    .dmem_doutb({\dmem_doutb[31] ,
-    \dmem_doutb[30] ,
-    \dmem_doutb[29] ,
-    \dmem_doutb[28] ,
-    \dmem_doutb[27] ,
-    \dmem_doutb[26] ,
-    \dmem_doutb[25] ,
-    \dmem_doutb[24] ,
-    \dmem_doutb[23] ,
-    \dmem_doutb[22] ,
-    \dmem_doutb[21] ,
-    \dmem_doutb[20] ,
-    \dmem_doutb[19] ,
-    \dmem_doutb[18] ,
-    \dmem_doutb[17] ,
-    \dmem_doutb[16] ,
-    \dmem_doutb[15] ,
-    \dmem_doutb[14] ,
-    \dmem_doutb[13] ,
-    \dmem_doutb[12] ,
-    \dmem_doutb[11] ,
-    \dmem_doutb[10] ,
-    \dmem_doutb[9] ,
-    \dmem_doutb[8] ,
-    \dmem_doutb[7] ,
-    \dmem_doutb[6] ,
-    \dmem_doutb[5] ,
-    \dmem_doutb[4] ,
-    \dmem_doutb[3] ,
-    \dmem_doutb[2] ,
-    \dmem_doutb[1] ,
-    \dmem_doutb[0] }),
+    .dmem_doutb({la_data_out[31],
+    la_data_out[30],
+    la_data_out[29],
+    la_data_out[28],
+    la_data_out[27],
+    la_data_out[26],
+    la_data_out[25],
+    la_data_out[24],
+    la_data_out[23],
+    la_data_out[22],
+    la_data_out[21],
+    la_data_out[20],
+    la_data_out[19],
+    la_data_out[18],
+    la_data_out[17],
+    la_data_out[16],
+    la_data_out[15],
+    la_data_out[14],
+    la_data_out[13],
+    la_data_out[12],
+    la_data_out[11],
+    la_data_out[10],
+    la_data_out[9],
+    la_data_out[8],
+    la_data_out[7],
+    la_data_out[6],
+    la_data_out[5],
+    la_data_out[4],
+    la_data_out[3],
+    la_data_out[2],
+    la_data_out[1],
+    la_data_out[0]}),
     .dmem_wea({\dmem_wea[3] ,
     \dmem_wea[2] ,
     \dmem_wea[1] ,
@@ -585,14 +473,14 @@ module user_project_wrapper (user_clock2,
     .clk1(wb_clk_i),
     .vccd1(vccd1),
     .vssd1(vssd1),
-    .addr0({\dmem_addra[7] ,
-    \dmem_addra[6] ,
-    \dmem_addra[5] ,
-    \dmem_addra[4] ,
-    \dmem_addra[3] ,
-    \dmem_addra[2] ,
-    \dmem_addra[1] ,
-    \dmem_addra[0] }),
+    .addr0({la_data_out[71],
+    la_data_out[70],
+    la_data_out[69],
+    la_data_out[68],
+    la_data_out[67],
+    la_data_out[66],
+    la_data_out[65],
+    la_data_out[64]}),
     .addr1({\dmem_addrb[7] ,
     \dmem_addrb[6] ,
     \dmem_addrb[5] ,
@@ -601,38 +489,38 @@ module user_project_wrapper (user_clock2,
     \dmem_addrb[2] ,
     \dmem_addrb[1] ,
     \dmem_addrb[0] }),
-    .din0({\dmem_dina[31] ,
-    \dmem_dina[30] ,
-    \dmem_dina[29] ,
-    \dmem_dina[28] ,
-    \dmem_dina[27] ,
-    \dmem_dina[26] ,
-    \dmem_dina[25] ,
-    \dmem_dina[24] ,
-    \dmem_dina[23] ,
-    \dmem_dina[22] ,
-    \dmem_dina[21] ,
-    \dmem_dina[20] ,
-    \dmem_dina[19] ,
-    \dmem_dina[18] ,
-    \dmem_dina[17] ,
-    \dmem_dina[16] ,
-    \dmem_dina[15] ,
-    \dmem_dina[14] ,
-    \dmem_dina[13] ,
-    \dmem_dina[12] ,
-    \dmem_dina[11] ,
-    \dmem_dina[10] ,
-    \dmem_dina[9] ,
-    \dmem_dina[8] ,
-    \dmem_dina[7] ,
-    \dmem_dina[6] ,
-    \dmem_dina[5] ,
-    \dmem_dina[4] ,
-    \dmem_dina[3] ,
-    \dmem_dina[2] ,
-    \dmem_dina[1] ,
-    \dmem_dina[0] }),
+    .din0({la_data_out[63],
+    la_data_out[62],
+    la_data_out[61],
+    la_data_out[60],
+    la_data_out[59],
+    la_data_out[58],
+    la_data_out[57],
+    la_data_out[56],
+    la_data_out[55],
+    la_data_out[54],
+    la_data_out[53],
+    la_data_out[52],
+    la_data_out[51],
+    la_data_out[50],
+    la_data_out[49],
+    la_data_out[48],
+    la_data_out[47],
+    la_data_out[46],
+    la_data_out[45],
+    la_data_out[44],
+    la_data_out[43],
+    la_data_out[42],
+    la_data_out[41],
+    la_data_out[40],
+    la_data_out[39],
+    la_data_out[38],
+    la_data_out[37],
+    la_data_out[36],
+    la_data_out[35],
+    la_data_out[34],
+    la_data_out[33],
+    la_data_out[32]}),
     .dout0({_NC1,
     _NC2,
     _NC3,
@@ -665,38 +553,38 @@ module user_project_wrapper (user_clock2,
     _NC30,
     _NC31,
     _NC32}),
-    .dout1({\dmem_doutb[31] ,
-    \dmem_doutb[30] ,
-    \dmem_doutb[29] ,
-    \dmem_doutb[28] ,
-    \dmem_doutb[27] ,
-    \dmem_doutb[26] ,
-    \dmem_doutb[25] ,
-    \dmem_doutb[24] ,
-    \dmem_doutb[23] ,
-    \dmem_doutb[22] ,
-    \dmem_doutb[21] ,
-    \dmem_doutb[20] ,
-    \dmem_doutb[19] ,
-    \dmem_doutb[18] ,
-    \dmem_doutb[17] ,
-    \dmem_doutb[16] ,
-    \dmem_doutb[15] ,
-    \dmem_doutb[14] ,
-    \dmem_doutb[13] ,
-    \dmem_doutb[12] ,
-    \dmem_doutb[11] ,
-    \dmem_doutb[10] ,
-    \dmem_doutb[9] ,
-    \dmem_doutb[8] ,
-    \dmem_doutb[7] ,
-    \dmem_doutb[6] ,
-    \dmem_doutb[5] ,
-    \dmem_doutb[4] ,
-    \dmem_doutb[3] ,
-    \dmem_doutb[2] ,
-    \dmem_doutb[1] ,
-    \dmem_doutb[0] }),
+    .dout1({la_data_out[31],
+    la_data_out[30],
+    la_data_out[29],
+    la_data_out[28],
+    la_data_out[27],
+    la_data_out[26],
+    la_data_out[25],
+    la_data_out[24],
+    la_data_out[23],
+    la_data_out[22],
+    la_data_out[21],
+    la_data_out[20],
+    la_data_out[19],
+    la_data_out[18],
+    la_data_out[17],
+    la_data_out[16],
+    la_data_out[15],
+    la_data_out[14],
+    la_data_out[13],
+    la_data_out[12],
+    la_data_out[11],
+    la_data_out[10],
+    la_data_out[9],
+    la_data_out[8],
+    la_data_out[7],
+    la_data_out[6],
+    la_data_out[5],
+    la_data_out[4],
+    la_data_out[3],
+    la_data_out[2],
+    la_data_out[1],
+    la_data_out[0]}),
     .wmask0({\dmem_wea[3] ,
     \dmem_wea[2] ,
     \dmem_wea[1] ,
@@ -708,14 +596,14 @@ module user_project_wrapper (user_clock2,
     .clk1(wb_clk_i),
     .vccd1(vccd1),
     .vssd1(vssd1),
-    .addr0({\addr0[7] ,
-    \addr0[6] ,
-    \addr0[5] ,
-    \addr0[4] ,
-    \addr0[3] ,
-    \addr0[2] ,
-    \addr0[1] ,
-    \addr0[0] }),
+    .addr0({la_data_out[111],
+    la_data_out[110],
+    la_data_out[109],
+    la_data_out[108],
+    la_data_out[107],
+    la_data_out[106],
+    la_data_out[105],
+    la_data_out[104]}),
     .addr1({\imem_addr[7] ,
     \imem_addr[6] ,
     \imem_addr[5] ,
@@ -724,38 +612,38 @@ module user_project_wrapper (user_clock2,
     \imem_addr[2] ,
     \imem_addr[1] ,
     \imem_addr[0] }),
-    .din0({\din0[31] ,
-    \din0[30] ,
-    \din0[29] ,
-    \din0[28] ,
-    \din0[27] ,
-    \din0[26] ,
-    \din0[25] ,
-    \din0[24] ,
-    \din0[23] ,
-    \din0[22] ,
-    \din0[21] ,
-    \din0[20] ,
-    \din0[19] ,
-    \din0[18] ,
-    \din0[17] ,
-    \din0[16] ,
-    \din0[15] ,
-    \din0[14] ,
-    \din0[13] ,
-    \din0[12] ,
-    \din0[11] ,
-    \din0[10] ,
-    \din0[9] ,
-    \din0[8] ,
-    \din0[7] ,
-    \din0[6] ,
-    \din0[5] ,
-    \din0[4] ,
-    \din0[3] ,
-    \din0[2] ,
-    \din0[1] ,
-    \din0[0] }),
+    .din0({la_data_out[103],
+    la_data_out[102],
+    la_data_out[101],
+    la_data_out[100],
+    la_data_out[99],
+    la_data_out[98],
+    la_data_out[97],
+    la_data_out[96],
+    la_data_out[95],
+    la_data_out[94],
+    la_data_out[93],
+    la_data_out[92],
+    la_data_out[91],
+    la_data_out[90],
+    la_data_out[89],
+    la_data_out[88],
+    la_data_out[87],
+    la_data_out[86],
+    la_data_out[85],
+    la_data_out[84],
+    la_data_out[83],
+    la_data_out[82],
+    la_data_out[81],
+    la_data_out[80],
+    la_data_out[79],
+    la_data_out[78],
+    la_data_out[77],
+    la_data_out[76],
+    la_data_out[75],
+    la_data_out[74],
+    la_data_out[73],
+    la_data_out[72]}),
     .dout0({_NC33,
     _NC34,
     _NC35,
@@ -838,46 +726,46 @@ module user_project_wrapper (user_clock2,
     .wbs_we_i(wbs_we_i),
     .web0(web0),
     .addr0({\addr0[8] ,
-    \addr0[7] ,
-    \addr0[6] ,
-    \addr0[5] ,
-    \addr0[4] ,
-    \addr0[3] ,
-    \addr0[2] ,
-    \addr0[1] ,
-    \addr0[0] }),
-    .din0({\din0[31] ,
-    \din0[30] ,
-    \din0[29] ,
-    \din0[28] ,
-    \din0[27] ,
-    \din0[26] ,
-    \din0[25] ,
-    \din0[24] ,
-    \din0[23] ,
-    \din0[22] ,
-    \din0[21] ,
-    \din0[20] ,
-    \din0[19] ,
-    \din0[18] ,
-    \din0[17] ,
-    \din0[16] ,
-    \din0[15] ,
-    \din0[14] ,
-    \din0[13] ,
-    \din0[12] ,
-    \din0[11] ,
-    \din0[10] ,
-    \din0[9] ,
-    \din0[8] ,
-    \din0[7] ,
-    \din0[6] ,
-    \din0[5] ,
-    \din0[4] ,
-    \din0[3] ,
-    \din0[2] ,
-    \din0[1] ,
-    \din0[0] }),
+    la_data_out[111],
+    la_data_out[110],
+    la_data_out[109],
+    la_data_out[108],
+    la_data_out[107],
+    la_data_out[106],
+    la_data_out[105],
+    la_data_out[104]}),
+    .din0({la_data_out[103],
+    la_data_out[102],
+    la_data_out[101],
+    la_data_out[100],
+    la_data_out[99],
+    la_data_out[98],
+    la_data_out[97],
+    la_data_out[96],
+    la_data_out[95],
+    la_data_out[94],
+    la_data_out[93],
+    la_data_out[92],
+    la_data_out[91],
+    la_data_out[90],
+    la_data_out[89],
+    la_data_out[88],
+    la_data_out[87],
+    la_data_out[86],
+    la_data_out[85],
+    la_data_out[84],
+    la_data_out[83],
+    la_data_out[82],
+    la_data_out[81],
+    la_data_out[80],
+    la_data_out[79],
+    la_data_out[78],
+    la_data_out[77],
+    la_data_out[76],
+    la_data_out[75],
+    la_data_out[74],
+    la_data_out[73],
+    la_data_out[72]}),
     .wbs_adr_i({wbs_adr_i[31],
     wbs_adr_i[30],
     wbs_adr_i[29],

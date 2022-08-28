@@ -103,10 +103,7 @@ wire [3:0]  wmask0;
 wire [31:0] din0;
 wire [8:0]  addr0;
                   
-warpv_core core( `ifdef USE_POWER_PINS
-      .vccd1(vccd1),
-      .vssd1(vssd1),
-  `endif
+warpv_core core( 
     .dmem_addra(dmem_addra     ) ,
     .dmem_addrb(dmem_addrb     ) ,
     .dmem_dina (dmem_dina      ) ,
@@ -122,10 +119,7 @@ warpv_core core( `ifdef USE_POWER_PINS
     .clk       (wb_clk_i       ) , 
     .reset     (processor_reset));
 
-wb_interface wbs_int(`ifdef USE_POWER_PINS
-      .vccd1(vccd1),
-      .vssd1(vssd1),
-  `endif
+wb_interface wbs_int(
     .wb_clk_i       (wb_clk_i       ),
     .wb_rst_i       (wb_rst_i       ),
     .wbs_stb_i      (wbs_stb_i      ),
@@ -163,6 +157,9 @@ sky130_sram_1kbyte_1rw1r_32x256_8 dmem(
    .addr0(dmem_addra[7:0]),.din0(dmem_dina),
    .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb[7:0]),.dout1(dmem_doutb)
 );
+
+assign la_data_out[71:0] = {dmem_addra[7:0],dmem_dina,dmem_doutb};
+assign la_data_out[111:72] = {addr0, din0};
 
 endmodule	// user_project_wrapper
 

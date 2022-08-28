@@ -160,7 +160,8 @@ module wb_port_tb;
 	initial begin
 	   wait(checkbits == 16'hAB60);
 		$display("Monitor: MPRJ-Logic WB Started");
-		wait(checkbits == 16'hAB61);
+		wait(uut.mprj.dmem.din0 == 32'hD);
+		wait(uut.mprj.dmem.din0 == 32'h1A);
 		`ifdef GL
 	    	$display("Monitor: Mega-Project WB (GL) Passed");
 		`else
