@@ -1,7 +1,7 @@
 magic
 tech sky130B
 magscale 1 2
-timestamp 1661447681
+timestamp 1662897243
 << obsli1 >>
 rect 1104 2159 178848 117521
 << obsm1 >>
@@ -1122,7 +1122,7 @@ string FIXED_BBOX 0 0 180000 120000
 string LEFclass BLOCK
 string LEFview TRUE
 string GDS_END 48766322
-string GDS_FILE /home/ali11-2000/efabless/mpw-waprv/openlane/warpv_core/runs/22_08_25_21_47/results/signoff/warpv_core.magic.gds
+string GDS_FILE /home/ali11-2000/efabless/mpw-waprv/openlane/warpv_core/runs/22_09_11_16_35/results/signoff/warpv_core.magic.gds
 string GDS_START 1305772
 << end >>
 

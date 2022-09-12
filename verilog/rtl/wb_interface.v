@@ -19,6 +19,9 @@
     input [3:0] wbs_sel_i,
     input [31:0] wbs_dat_i,
     input [31:0] wbs_adr_i,
+    input dmem_enb, 
+    input [7:0] dmem_addrb, 
+    input [31:0] dmem_doutb,
     output clk0,
     output csb0,
     output web0,
@@ -27,11 +30,15 @@
     output [8:0]  addr0,
     output imem_rd_cs1,
     output wbs_ack_o,
+    output [7:0] dmem_addrb_o,
+    output [31:0] wbs_dat_o,
     output processor_reset);
    
    wire clk;
    assign clk = wb_clk_i;
 `include "wb_interface_gen.v" //_\TLV
+   assign wbs_dat_o = dmem_doutb;
+   assign dmem_addrb_o = dmem_enb ? wbs_adr_i[7:0] : dmem_addrb;
    assign L0_valid_addr_a0 = wbs_adr_i[31:11] == 21'b0011_0000_0000_0000_0000_0;
    assign processor_reset = ((wbs_adr_i[31:28] == 4'h3) && (wbs_adr_i[11] == 1)) ? wbs_dat_i[0] : '0;
    assign L0_valid_a0 = wbs_cyc_i && wbs_stb_i;

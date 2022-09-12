@@ -102,6 +102,7 @@ wire        imem_rd_cs1;
 wire [3:0]  wmask0;
 wire [31:0] din0;
 wire [8:0]  addr0;
+wire [7:0]  dmem_addrb_o;
                   
 warpv_core core( 
     .dmem_addra(dmem_addra     ) ,
@@ -118,26 +119,6 @@ warpv_core core(
     .imem_data (imem_data      ) ,
     .clk       (wb_clk_i       ) , 
     .reset     (processor_reset));
-
-wb_interface wbs_int(
-    .wb_clk_i       (wb_clk_i       ),
-    .wb_rst_i       (wb_rst_i       ),
-    .wbs_stb_i      (wbs_stb_i      ),
-    .wbs_cyc_i      (wbs_cyc_i      ),
-    .wbs_we_i       (wbs_we_i       ),
-    .wbs_sel_i      (wbs_sel_i      ),
-    .wbs_dat_i      (wbs_dat_i      ),
-    .wbs_adr_i      (wbs_adr_i      ),
-    .clk0           (clk0           ),
-    .csb0           (csb0           ),
-    .web0           (web0           ),
-    .wmask0         (wmask0         ),
-    .din0           (din0           ),
-    .addr0          (addr0          ),
-    .imem_rd_cs1    (imem_rd_cs1    ),
-    .wbs_ack_o      (wbs_ack_o      ),
-    .processor_reset(processor_reset)
-    );
                   
 sky130_sram_1kbyte_1rw1r_32x256_8 imem(
    `ifdef USE_POWER_PINS
@@ -155,12 +136,37 @@ sky130_sram_1kbyte_1rw1r_32x256_8 dmem(
   `endif
    .clk0(wb_clk_i),.csb0(dmem_ena),.web0(dmem_wea0),.wmask0(dmem_wea),
    .addr0(dmem_addra[7:0]),.din0(dmem_dina),
-   .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb[7:0]),.dout1(dmem_doutb)
+   .clk1(wb_clk_i),.csb1(dmem_enb),.addr1(dmem_addrb_o[7:0]),.dout1(dmem_doutb)
 );
 
-assign la_data_out[71:0] = {dmem_addra[7:0],dmem_dina,dmem_doutb};
-assign la_data_out[111:72] = {addr0, din0};
+wb_interface wbs_int(
+    .wb_clk_i       (wb_clk_i       ),
+    .wb_rst_i       (wb_rst_i       ),
+    .wbs_stb_i      (wbs_stb_i      ),
+    .wbs_cyc_i      (wbs_cyc_i      ),
+    .wbs_we_i       (wbs_we_i       ),
+    .wbs_sel_i      (wbs_sel_i      ),
+    .wbs_dat_i      (wbs_dat_i      ),
+    .wbs_adr_i      (wbs_adr_i      ),
+    .dmem_enb       (dmem_enb       ),
+    .dmem_addrb     (dmem_addrb[7:0]),
+    .dmem_doutb     (dmem_doutb     ),
+    .clk0           (clk0           ),
+    .csb0           (csb0           ),
+    .web0           (web0           ),
+    .wmask0         (wmask0         ),
+    .din0           (din0           ),
+    .addr0          (addr0          ),
+    .imem_rd_cs1    (imem_rd_cs1    ),
+    .wbs_ack_o      (wbs_ack_o      ),
+    .dmem_addrb_o   (dmem_addrb_o   ),
+    .wbs_dat_o      (wbs_dat_o      ),
+    .processor_reset(processor_reset)
+    );
 
+assign la_data_out[39:0]   = {dmem_addra[7:0],dmem_dina};
+assign la_data_out[111:72] = {addr0, din0};
+assign io_out[31:0]        = dmem_doutb;
 endmodule	// user_project_wrapper
 
 `default_nettype wire

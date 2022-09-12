@@ -14,7 +14,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 set ::env(PDK) $::env(PDK)
-set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hd"
+set ::env(STD_CELL_LIBRARY) "sky130_fd_sc_hvl"
 
 set script_dir [file dirname [file normalize [info script]]]
 

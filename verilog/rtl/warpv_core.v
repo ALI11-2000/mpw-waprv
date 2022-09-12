@@ -33,7 +33,7 @@
                       input         clk, reset);
 
 `include "warpv_core_gen.v" //_\TLV
-   //_\source /raw.githubusercontent.com/ALI112000/warpv/1d9674ce50e970dbbe0d01d29e10fe2cba86c7fe/warpv.tlv 3427   // Instantiated from warpv_core.tlv, 123 as: m4+cpu(/top)
+   //_\source /raw.githubusercontent.com/ALI112000/warpv/1d9674ce50e970dbbe0d01d29e10fe2cba86c7fe/warpv.tlv 3427   // Instantiated from warpv_core.tlv, 122 as: m4+cpu(/top)
       // Generated logic
       // Instantiate the _gen macro for the right ISA. (This approach is required for an m4-defined name.)
       
@@ -1598,7 +1598,7 @@
    
             // TODO. Seperate the $rslt and $reg_wr_pending committed to both "int" and "fpu" regs.
    //_\end_source
-   //_\source /raw.githubusercontent.com/ALI112000/warpv/1d9674ce50e970dbbe0d01d29e10fe2cba86c7fe/warpv.tlv 5302   // Instantiated from warpv_core.tlv, 124 as: m4+cpu_viz(|fetch, "#7AD7F0")
+   //_\source /raw.githubusercontent.com/ALI112000/warpv/1d9674ce50e970dbbe0d01d29e10fe2cba86c7fe/warpv.tlv 5302   // Instantiated from warpv_core.tlv, 123 as: m4+cpu_viz(|fetch, "#7AD7F0")
       /* CPU_VIZ HERE */
       
       

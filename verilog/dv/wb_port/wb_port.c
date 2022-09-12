@@ -94,20 +94,6 @@ void main()
         0x00000013
     };
 
-    int code1[]={
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF,
-        0xFFFFFFFF
-    };
 
     // Flag start of the test
 	reg_mprj_datal = 0xAB600000;
@@ -117,11 +103,6 @@ void main()
     for (int i = 0; i < 12; i++)
     {
         *(dst_pointer++) = code[i];
-    }
-
-    for (int i = 0; i < 12; i++)
-    {
-        *(dst_pointer++) = code1[i];
     }
 
     processor_start = 0x1;

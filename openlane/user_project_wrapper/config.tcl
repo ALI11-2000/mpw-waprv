@@ -53,16 +53,6 @@ set ::env(FP_PDN_MACRO_HOOKS) "\
 ### Macro Placement
 set ::env(MACRO_PLACEMENT_CFG) $script_dir/macro.cfg
 
-# set ::env(GLB_RT_OBS)  "
-# li1	0	0	2920	3520,
-# 						met1 1500 2450 2000 2950,
-#                         met2 1500 2450 2000 2950,
-#                         met3 1500 2450 2000 2950,
-#                         met4 1500 2450 2000 2950,
-# 						met1 500  300  1000 800,
-#                         met2 500  300  1000 800,
-#                         met3 500  300  1000 800,
-#                         met4 500  300  1000 800"
 set ::env(GLB_RT_OBS)  "li1  0    0   2920    3520,
 						met1 1500 500  1979.78 897.5,
                         met2 1500 500  1979.78 897.5,
