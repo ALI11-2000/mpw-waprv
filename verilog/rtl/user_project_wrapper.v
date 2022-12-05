@@ -166,7 +166,7 @@ wb_interface wbs_int(
 
 assign la_data_out[39:0]   = {dmem_addra[7:0],dmem_dina};
 assign la_data_out[111:72] = {addr0, din0};
-assign io_out[31:0]        = dmem_doutb;
+assign io_out[37:6]        = dmem_doutb;
 endmodule	// user_project_wrapper
 
 `default_nettype wire
